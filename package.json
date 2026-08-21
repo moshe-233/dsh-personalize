@@ -16,6 +16,9 @@
   "engines": {
     "node": ">=20"
   },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node -e \"const fs=require('fs');const p='lib/client.js';if(fs.existsSync(p)){fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace(/export\\s*\\{\\s*\\};?\\s*$/,''));}\""
+  },
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
@@ -36,11 +39,10 @@
     "type": "git",
     "url": "https://github.com/Zephyr-vibe/dsh-personalize.git"
   },
-  "dependencies": {
-    "schemastery": "^3.18.0"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/schemastery": "^0.1.0-rc.6",
     "@deepseek-ai/dsh-tools": "^0.1.0-rc.6",
     "@deepseek-ai/dsh-system-prompt": "^0.1.0-rc.6",
     "@deepseek-ai/dsh-host-webserver": "^0.1.0-rc.6",
